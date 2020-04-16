@@ -1,0 +1,9 @@
+2.Реализовать аналог getUsers.exe и вывести только локальных НЕадминистраторов.
+
+Потенциально полезные для вас функции:
+NetUserEnum
+https://docs.microsoft.com/en-us/windows/win32/api/lmaccess/nf-lmaccess-netuserenum
+
+Потенциально полезные структуры:
+LPUSER_INFO_0
+LPUSER_INFO_1
