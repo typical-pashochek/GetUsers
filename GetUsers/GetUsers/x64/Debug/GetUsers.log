@@ -1,0 +1,6 @@
+﻿  main.c
+D:\Projects_in_c\GetUsers\GetUsers\main.c(21,26): warning C4477: "fwprintf": в строке форматирования "%s" требуется аргумент типа "unsigned short *", но вариативный аргумент "1" имеет тип "int"
+D:\Projects_in_c\GetUsers\GetUsers\main.c(21,26): warning C4313: fwprintf: конфликт "%s" в строке формата с аргументом 1 типа "int"
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ NetUserEnum в функции main
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ NetApiBufferFree в функции main
+D:\Projects_in_c\GetUsers\x64\Debug\GetUsers.exe : fatal error LNK1120: неразрешенных внешних элементов: 2
