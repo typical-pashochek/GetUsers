@@ -10,9 +10,9 @@
 
 int wmain(int argc, wchar_t* argv[])
 {
-    LPUSER_INFO_0 pBuf = NULL;
+    LPUSER_INFO_1 pBuf = NULL;
     LPWSTR servername = NULL;
-    DWORD level = 0;
+    DWORD level = 1;
     DWORD filter = 0;
     DWORD prefmaxlen = MAX_PREFERRED_LENGTH;
     DWORD entriesread = 0;
@@ -29,16 +29,16 @@ int wmain(int argc, wchar_t* argv[])
             &entriesread,
             &totalentries,
             &resume_handle);
+    int LUcount = 0;
+    LPUSER_INFO_1 pBuf2 = pBuf;
     for (int i = 0; i < entriesread; i++) {
-        wprintf(L"\t-- %s\n", pBuf->usri0_name);
-           pBuf++;
-    }
-    if (pBuf != NULL)
-    {
-        NetApiBufferFree(pBuf);
-        pBuf = NULL;
-    }
-    fprintf(stderr, "\nTotal of %d entries enumerated\n", totalentries);
-
+        if (pBuf->usri1_priv == 0) {
+            wprintf(L"\t-- %s\n", pBuf->usri1_name);
+            LUcount += 1;
+        }
+        pBuf++;
+    }   
+    fprintf(stderr, "\nTotal of %d local users enumerated\n", LUcount);
+    NetApiBufferFree(pBuf2);
     return 0;
 }
